@@ -36,7 +36,7 @@ module.exports =
     buildNewIssueOrPRMessage(data, 'pull_request', callback)
 
   issue_comment: (data, callback) ->
-    callback "New issue comment #{data.comment.html_url} on #{data.repository.name}: #{data.repository.html_url}"
+    callback "New issue comment on \"#{data.issue.title}\" by #{data.comment.user.login}: #{data.comment.html_url}"
 
   page_build: (data, callback) ->
     build = data.build
