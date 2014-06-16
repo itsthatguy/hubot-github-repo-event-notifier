@@ -35,7 +35,7 @@ buildNewIssueOrPRMessage = (data, eventType, callback) ->
   mentioned_line = ''
   if pr_or_issue.body?
     mentioned_line = extractMentionsFromBody(pr_or_issue.body)
-  callback "#{closed} #{eventType.replace('_', ' ')} \"#{pr_or_issue.title}\" by #{pr_or_issue.user.login}: #{pr_or_issue.html_url}#{mentioned_line}"
+  callback "#{actionMsg} #{eventType.replace('_', ' ')} \"#{pr_or_issue.title}\" by #{pr_or_issue.user.login}: #{pr_or_issue.html_url}#{mentioned_line}"
 
 module.exports =
   issues: (data, callback) ->
