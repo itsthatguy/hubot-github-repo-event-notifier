@@ -51,8 +51,9 @@ module.exports =
     callback "Create a new branch '#{data.ref}': #{data.repository.html_url}/tree/#{data.ref}"
 
   push: (data, callback) ->
-    message = data.head_commit.message.replace(/(\n\n|\r\n|\n|\r)/gm," ")
-    callback "New commit \"#{message}\" by #{data.head_commit.committer.username}: #{data.head_commit.url}"
+    unless data.deleted
+      message = data.head_commit.message.replace(/(\n\n|\r\n|\n|\r)/gm," ")
+      callback "New commit \"#{message}\" by #{data.head_commit.committer.username}: #{data.head_commit.url}"
 
   page_build: (data, callback) ->
     build = data.build
