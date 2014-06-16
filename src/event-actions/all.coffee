@@ -36,7 +36,7 @@ module.exports =
     buildNewIssueOrPRMessage(data, 'pull_request', callback)
 
   issue_comment: (data, callback) ->
-    console.log data
+    buildNewIssueOrPRMessage(data, 'issue_comment', callback)
 
   page_build: (data, callback) ->
     build = data.build
