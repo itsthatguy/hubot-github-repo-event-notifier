@@ -48,7 +48,8 @@ module.exports =
     callback "New issue comment on \"#{data.issue.title}\" by #{data.comment.user.login}: #{data.comment.html_url}"
 
   push: (data, callback) ->
-    callback "New commit \"#{data.head_commit.message}\" by #{data.head_commit.committer.name}: #{data.head_commit.url}"
+    message = data.head_commit.message.replace(/(\r\n|\n|\r)/gm,"")
+    callback "New commit \"#{message}\" by #{data.head_commit.committer.username}: #{data.head_commit.url}"
 
   page_build: (data, callback) ->
     build = data.build
