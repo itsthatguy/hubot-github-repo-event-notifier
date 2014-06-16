@@ -47,6 +47,9 @@ module.exports =
   issue_comment: (data, callback) ->
     callback "New issue comment on \"#{data.issue.title}\" by #{data.comment.user.login}: #{data.comment.html_url}"
 
+  push: (data, callback) ->
+    callback "New commit \"#{data.head_commit.message}\" by #{head_commit.committer.name}: #{data.head_commit.url}"
+
   page_build: (data, callback) ->
     build = data.build
     if build?
